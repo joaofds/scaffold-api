@@ -107,7 +107,7 @@ class AuthController extends Controller
      */
     public function logout(Request $request) {
         try {
-            auth()->user()->token()->delete();
+            Auth::guard('web')->logout();
 
             return response()->json(
                 [
@@ -118,6 +118,5 @@ class AuthController extends Controller
         } catch (\Exception $e) {
             return response()->json('error_logout', 500);
         }
-
     }
 }
