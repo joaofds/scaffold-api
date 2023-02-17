@@ -22,4 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['prefix' => '/user'], function () {
     Route::post('/register', 'App\Http\Controllers\Api\AuthController@store')->name('user-register');
     Route::post('/login', 'App\Http\Controllers\Api\AuthController@login')->name('user-login');
+    Route::post('/logout', 'App\Http\Controllers\Api\AuthController@logout')->name('user-logout');
 });
